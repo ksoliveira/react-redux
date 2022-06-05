@@ -1,0 +1,12 @@
+.Video {
+  background-color: transparent;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.Video .player {
+  background-color: black;
+  width: 100%;
+  height: 400px;
+}
+
