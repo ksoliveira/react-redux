@@ -1,6 +1,10 @@
-# Getting Started with Create React App
+# App based on Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app)
+## Description
+
+This app is a study using react + redux. 
+It simulate a course page like Udemy, when there is a side who comunicate with Store setting up de current lesson and module while Video component looks to store to display lesson and module data.
+
 
 ## Available Scripts
 
