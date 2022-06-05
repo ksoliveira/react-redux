@@ -1,43 +1,29 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './Sidebar.css';
+import { useSelector, useDispatch } from 'react-redux';
+import { setActiveLessonAndModule, setActiveModule } from '../../features/modules/modulesSlice';
 
-export default class Sidebar extends Component {
-    state = {
-        modules: [
-            {
-                id: 1, title: 'Módulo 1', lessons: [
-                    { id: 1, title: 'Aula 1'},
-                    { id: 2, title: 'Aula 2'}
-                    
-                ]
-            },
-            {
-                id: 2, title: 'Módulo 2', lessons: [
-                    { id: 3, title: 'Aula 3'},
-                    { id: 4, title: 'Aula 4'}
-                    
-                ]
-            },
-            
-        ]
-    }
-    render() {
-        const { modules } = this.state;
-        return (
+
+
+export default function Counter() {
+    const course = useSelector((state) => state.course)
+    const dispatch = useDispatch()
+
+    return (
+
         <aside className="Sidebar">
-            {modules.map(module => (
+                {course.modules.map(module => (
                 <div key={module.id}>
-                    <strong>{module.title}</strong>
+                    <strong onClick={() => dispatch(setActiveModule(module))}>{module.title}</strong>
                     <ul>
                         {module.lessons.map(lesson => (
-                            <li key={lesson.id}>
+                            <li key={lesson.id} onClick={() => dispatch(setActiveLessonAndModule({module: module, lesson:lesson}))}>
                                 {lesson.title}
                             </li>
                         ))}
                     </ul>
                 </div>
-            ))}
+            ))} 
         </aside>
-        );
-    }
+    )
 }
